@@ -1,20 +1,33 @@
-//Hooks
+//CSS
 
-//Pages
+import ".Login.css";
 
 //Components
-import LoginForm from "../../components/LoginForm/LoginForm";
+import LoginForm from "../components/LoginForm/LoginForm";
 
-//CSS
-import "./Login.css";
-
-function Login() {
-  return (
-    <div>
-      <h1>This is the Login page</h1>
-      <LoginForm />
-    </div>
-  );
+function LoginPage() {
+  return <LoginForm />;
 }
 
-export default Login;
+export default LoginPage;
+
+// //Hooks
+
+// //Pages
+
+// //Components
+// import LoginForm from "../../components/LoginForm/LoginForm";
+
+// //CSS
+// import "./Login.css";
+
+// function Login() {
+//   return (
+//     <div>
+//       <h1>This is the Login page</h1>
+//       <LoginForm />
+//     </div>
+//   );
+// }
+
+// export default Login;
