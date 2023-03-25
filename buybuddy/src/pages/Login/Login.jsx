@@ -1,15 +1,20 @@
 //CSS
 
-import ".Login.css";
+import "./Login.css";
 
 //Components
-import LoginForm from "../components/LoginForm/LoginForm";
+import LoginForm from "../../components/LoginForm/LoginForm"
 
-function LoginPage() {
-  return <LoginForm />;
+function Login() {
+  return (
+    <div>
+      <h1>Login to buy with your buddy!</h1>
+      <LoginForm />
+    </div>
+  );
 }
+export default Login;
 
-export default LoginPage;
 
 // //Hooks
 
@@ -21,13 +26,3 @@ export default LoginPage;
 // //CSS
 // import "./Login.css";
 
-// function Login() {
-//   return (
-//     <div>
-//       <h1>This is the Login page</h1>
-//       <LoginForm />
-//     </div>
-//   );
-// }
-
-// export default Login;

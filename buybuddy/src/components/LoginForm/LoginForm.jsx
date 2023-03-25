@@ -4,7 +4,7 @@ import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginForm() {
-  const { setLoggedIn } = useOutletContext();
+  // const { setLoggedIn } = useOutletContext();
 
   //State
   const [credentials, setCredentials] = useState({
@@ -25,19 +25,19 @@ function LoginForm() {
     }));
   };
 
-  const postData = async () => {
-    const response = await fetch(
-      `${import.meta.env.VITE_API_URL}api-token-auth/`,
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }
-    );
-    return response.json();
-  };
+  // const postData = async () => {
+  //   const response = await fetch(
+  //     `${import.meta.env.VITE_API_URL}api-token-auth/`,
+  //     {
+  //       method: "post",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(credentials),
+  //     }
+  //   );
+  //   return response.json();
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,15 +49,15 @@ function LoginForm() {
         navigate("/");
       } else setLoggedIn(false);
 
-      //   fetch(`${import.meta.env.VITE_API_URL}api-token-auth/`, {
-      //     method: "post",
-      //     headers: {
-      //       "Content-Type": "application/json",
-      //     },
-      //     body: JSON.stringify(credentials),
-      //   }).then((response) => {
-      //     console.log(response.json());
-      //   });
+      fetch(`${import.meta.env.VITE_API_URL}api-token-auth/`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      }).then((response) => {
+        console.log(response.json());
+      });
     }
   };
 
