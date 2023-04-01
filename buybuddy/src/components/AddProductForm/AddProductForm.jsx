@@ -6,7 +6,7 @@
 
 //CSS
 import "./AddProductForm.css";
-import "./StyleForms.css";
+import "../StyleForms.css";
 
 function AddProductForm() {
   return <div>This is the Add Product form</div>;
