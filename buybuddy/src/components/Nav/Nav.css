@@ -1,0 +1,131 @@
+:root {
+    --heading-font: 
+    --body-font: 
+  }
+  
+​
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    height: 100%;
+  }
+​
+.nav-wrapper {
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ebebeb;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F3F7FB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo-wrapper {
+    max-width: 100px;
+    height: 500%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo-img {
+    max-width: 120%;
+  }
+  
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .links {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+  
+  .show {
+    display: flex;
+  }
+  
+  .links a {
+    margin-top: 10px;
+    color: #101336;
+    text-decoration: none;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .menu-toggle {
+      display: none;
+    }
+  
+    .links {
+      display: flex;
+      flex-direction: row;
+      margin-top: 0;
+      font-size: 12px;
+    }
+  
+    .links a {
+      margin-top: 0;
+      margin-left: 20px;
+    }
+  }
+  
+  .auth-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-btn {
+    border-color: #101336;
+    border-style: solid;
+    color: #101336;
+    border: 2px solid #101336;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+​
+​
+  .signup-btn {
+    background-color: #101336;
+    color: #fff;
+    border: 2px;
+    border-style: solid;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    font-size: 12px;
+  }
+  
+  .login-btn:hover,
+  .signup-btn:hover {
+    opacity: 0.5;
+  }
