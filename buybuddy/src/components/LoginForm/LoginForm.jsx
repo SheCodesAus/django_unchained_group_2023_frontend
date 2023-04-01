@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate, useOutletContext } from "react-router-dom";
 
 import "./LoginForm.css";
+import "./StyleForms.css";
 
 function LoginForm() {
   // const { setLoggedIn } = useOutletContext();

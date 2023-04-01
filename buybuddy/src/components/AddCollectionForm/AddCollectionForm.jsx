@@ -5,6 +5,8 @@ import React from "react";
 
 //CSS
 import "./AddCollectionForm.css";
+import "./StyleForms.css";
+
 
 
 function AddCollectionForm(props) {
