@@ -13,6 +13,13 @@ function Dashboard() {
   const authToken = window.localStorage.getItem("token");
   const [collectionList, setCollectionList] = useState([]);
 
+  const sortCollectionList = (data) => {
+    const sortedList = [...data].sort((a, b) =>
+      a.collection_name.localeCompare(b.collection_name)
+    );
+    setCollectionList(sortedList);
+  };
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}collection-list`, {
       method: "get",
@@ -25,7 +32,7 @@ function Dashboard() {
         return results.json();
       })
       .then((data) => {
-        setCollectionList(data);
+        sortCollectionList(data);
       });
   }, []);
 
