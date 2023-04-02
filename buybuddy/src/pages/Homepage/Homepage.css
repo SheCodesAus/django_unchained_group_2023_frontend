@@ -44,7 +44,6 @@
   color: white;
   padding: 1em 1.5em;
   border-radius: 100px;
-  margin: auto;
 }
 
 .btn-subheading {
@@ -128,6 +127,10 @@
     .hero-right {
       justify-content: space-around;
     }
+
+    .hero-button {
+      margin: auto;
+    }
 }
 
 @media screen and (max-width: 550px) {
@@ -136,6 +139,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
   }
 
   .buybuddy__navbar {
@@ -157,6 +161,10 @@
 
   .img {
     justify-content: space-around;
+  }
+
+  .hero-button {
+    margin: auto;
   }
 
 }
