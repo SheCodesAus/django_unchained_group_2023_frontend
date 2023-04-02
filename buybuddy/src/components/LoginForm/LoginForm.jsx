@@ -63,7 +63,7 @@ function LoginForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="login-form-wrapper">
+    <form onSubmit={handleSubmit} className="form-wrapper">
       <h2>Login</h2>
       <div className="form-item">
         <input

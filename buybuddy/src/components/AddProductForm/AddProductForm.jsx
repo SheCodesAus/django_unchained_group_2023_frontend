@@ -13,51 +13,9 @@ function AddProductForm(props) {
 
   return (
     <div>
-      Add you product here:
-      <form>
-        <div className="form-product">
-          <label htmlFor="title">
-            <span>Title</span>
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            required="required"
-            onChange={handleChange}
-            value=""
-          />
-        </div>
-        <div className="form-product">
-          <label htmlFor="image">
-            <span>Image</span>
-          </label>
-          <input
-            type="url"
-            id="image"
-            name="image"
-            required="required"
-            onChange={handleChange}
-            value=""
-          />
-        </div>
-        <div className="form-product">
-          <label htmlFor="price">
-            <span>Price</span>
-          </label>
-          <input
-            type="number"
-            id="price"
-            name="price"
-            required="required"
-            onChange={handleChange}
-            value=""
-          />
-        </div>
-        <div className="form-product">
-          <label htmlFor="brand">
-            <span>Brand</span>
-          </label>
+      <form className="form-wrapper">
+        <h2>Add a product</h2>
+        <div className="form-item">
           <input
             type="text"
             id="brand"
@@ -66,11 +24,64 @@ function AddProductForm(props) {
             onChange={handleChange}
             value=""
           />
-        </div>
-        <div className="form-product">
-          <label htmlFor="notes">
-            <span>Notes</span>
+          <label htmlFor="brand">
+            <span>Brand</span>
           </label>
+        </div>
+        <div className="form-item">
+          <input
+            type="text"
+            id="title"
+            name="title"
+            required="required"
+            onChange={handleChange}
+            value=""
+          />
+          <label htmlFor="title">
+            <span>Title</span>
+          </label>
+        </div>
+        <div className="form-item">
+          <input
+            type="url"
+            id="image"
+            name="image"
+            required="required"
+            onChange={handleChange}
+            value=""
+          />
+          <label htmlFor="image">
+            <span>Image URL</span>
+          </label>
+        </div>
+        <div className="form-item">
+          <input
+            type="url"
+            id="product-link"
+            name="product-link"
+            required="required"
+            onChange={handleChange}
+            value=""
+          />
+          <label htmlFor="product-link">
+            <span>Product Link</span>
+          </label>
+        </div>
+        <div className="form-item">
+          <input
+            type="number"
+            id="price"
+            name="price"
+            required="required"
+            onChange={handleChange}
+            value=""
+          />
+          <label htmlFor="price">
+            <span>Price</span>
+          </label>
+        </div>
+
+        <div className="form-item">
           <input
             type="text"
             id="notes"
@@ -79,6 +90,9 @@ function AddProductForm(props) {
             onChange={handleChange}
             value=""
           />
+          <label htmlFor="notes">
+            <span>Additional Notes</span>
+          </label>
         </div>
         <Button
           type="submit"

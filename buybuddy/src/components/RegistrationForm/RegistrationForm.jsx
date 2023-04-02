@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./RegistrationForm.css";
+import "../FormStyles.css";
 
 function RegistrationForm() {
   const authToken = window.localStorage.getItem("token");
@@ -40,13 +41,10 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="registration-form-wrapper">
-      <h2>Create your very own shopping list</h2>
-      <p>
-        Register now to create your shopping list.
-      </p>
+    <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
-        <h2>Register </h2>
+        <h2>Register</h2>
+        <p>to create your own shopping list</p>
         <div className="form-item">
           <input
             type="text"
