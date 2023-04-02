@@ -20,12 +20,18 @@
 
 p {
   color: white;
-  font-family: var(--body-font-family);
+  font-family: var(--heading-font-family);
   line-height: var(--line-height);
-  padding: 10px;
 }
 
 h1 {
+  color: white;
+  font-family: var(--heading-font-family);
+  line-height: var(--line-height);
+  padding-bottom: 20px;
+}
+
+h2 {
   color: white;
   font-family: var(--heading-font-family);
   line-height: var(--line-height);
@@ -33,7 +39,14 @@ h1 {
 }
 
 button {
-  color: white
+  background-color: #fa9fc5;
+    color: white;
+    padding: 1em 1.5em;
+    border-radius: 100px;
+}
+
+.button:hover {
+  background-color: #52dd79a0;
 }
 
 container {

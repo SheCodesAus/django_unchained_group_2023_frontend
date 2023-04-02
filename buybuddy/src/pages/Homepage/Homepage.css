@@ -3,6 +3,22 @@
   --body-font: 
 } 
 
+.hero__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 32px;
+
+  padding: 2rem 6rem;
+}
+
+.split {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .hero {
   text-align: center;
 }
@@ -21,7 +37,12 @@
   margin-top: 3em;
 }
 
+
 .hero-left {
+  width: 40%;
+}
+
+.hero-right {
   width: 40%;
 }
 
