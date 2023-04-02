@@ -11,7 +11,6 @@ import "./AddProduct.css";
 function AddProduct() {
   return (
     <div>
-      <h1>This is the Add Product page</h1>
       <AddProductForm />
     </div>
   );

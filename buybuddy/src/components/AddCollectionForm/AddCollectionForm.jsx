@@ -13,10 +13,9 @@ function AddCollectionForm(props) {
   };
 
   return (
-    <div className="addcollection-form-wrapper">
-      <div>This is the Add Collection Form</div>
-      <p>What are you shopping for?</p>
+    <div className="form-wrapper">
       <form>
+        <h2>Create A Collection</h2>
         <div className="form-item">
           <input
             type="text"
