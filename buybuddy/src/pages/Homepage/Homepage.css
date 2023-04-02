@@ -1,94 +1,33 @@
-/* :root {
+:root {
   --heading-font: 
   --body-font: 
-} */
-/* wrapper for hero section 1 & 2 */
-.hero-container {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-}
-.hero-content-wrapper {
-  width: 100%;
-  height: 50vh;
-}
-/* content contains title, description and cta button within it */
-.hero-content {
+} 
+
+.hero {
+  text-align: center;
 }
 
-.hero-title {
-  color: #101336;
-  font-size: 40px;
-  font-weight: bold;
-  font-family: "Montserrat", sans-serif;
-  padding-left: 10px;
+.hero h1 {
+  margin-bottom: 0.5em;
+  color: white;
 }
 
-.hero-description p {
-  color: #101336;
-  font-size: 20px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
-}
-.hero-section-1 {
-  width: 50%;
-  height: 70%;
-}
-/* hero section 2 */
-.hero-image-wrapper {
-  width: 100%;
-  height: 50vh;
-}
-/* hero-image content contains picture and dark blue background accent colour */
-.hero-image-content {
-}
-.hero-image {
-  width: flex;
-  height: 40vh;
-  align-items: center;
-  align-content: center;
-}
-.hero-section-2 {
-  width: 50%;
-  height: 70%;
+.hero p {
+  margin-bottom: 3em
+  color: white;
 }
 
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-  }
-
-  /* sign up button */
-  .cta-button {
-    background-color: #101336;
-    color: #fff;
-    border: 2px;
-    border-style: solid;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 16px;
-    font-size: 12px;
-  }
-  @media screen and (max-width: 992px) {
-    .hero-content-wrapper,
-    .hero-image-wrapper {
-      flex: 50%;
-    }
-  }
-  /* On screens that are 600px wide or less, 
-make the columns stack on top of each other 
-instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .hero-content-wrapper,
-    .hero-image-wrapper {
-      flex-direction: column;
-    }
-  }
+.hero-right img {
+  margin-top: 3em;
 }
+
+.hero-left {
+  width: 40%;
+}
+
+@media (min-width: 800px) {
+  .hero__container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }

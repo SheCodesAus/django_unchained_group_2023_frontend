@@ -17,6 +17,7 @@ import Nav from "./components/Nav/Nav";
 
 //CSS
 import "./App.css";
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
 const Layout = () => {
   return (

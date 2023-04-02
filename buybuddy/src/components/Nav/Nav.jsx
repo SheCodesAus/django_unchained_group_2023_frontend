@@ -1,59 +1,51 @@
 import { Link, useNavigate } from "react-router-dom";
 // import logo from "../../media/buybuddy-logo.png";
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import "./Nav.css";
 import { useRef, useState } from "react";
+
+
+
 // Nav Bar
-function Nav(props) {
-  const [navbar, setNavbar] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-  const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
-  const [menu_class, setMenuClass] = useState("menu hiddend");
-  const [isMenuClicked, setIsMenuClicked] = useState(false);
-  // added a state variable showMenu that toggles the visibility of the links when the menu button is clicked
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
-  };
-  const navRef = useRef();
-  const navigate = useNavigate();
-  const { loggedIn, setLoggedIn } = props;
-  const handleClick = () => {
-    window.localStorage.removeItem("token");
-    setLoggedIn(false);
-    navigate("/");
-    navRef.current.classList.toggle("responsive_nav");
-  };
-  const showNavBar = () => {
-    navRef.current.classList.toggle("responsive_nav");
-  };
-  const changeNavbar = () => {
-    if (window.scrollY >= 80) {
-      setNavbar(true);
-    } else {
-      setNavbar(false);
-    }
-  };
-  window.addEventListener("scroll", changeNavbar);
+
+function Nav(props) { 
+  const [toggleMenu, setToggleMenu] = useState(false);
+
   return (
-    <div className="nav-wrapper">
-      <div className="navbar">
-        <div className="logo-wrapper">
-          {/* <img src={logo} alt="Logo" className="logo-img" /> */}
+    <div className="buybuddy__navbar">
+      <div className="buybuddy__navbar-links_logo">
+        {/* <img src={logo} /> */}
+        {/* put logo here later */}
+        <a href="#">BUYBUDDY</a></div>
+      <div className="buybuddy__navbar-links">
+        <div className="buybuddy__navbar-links_container">
+          <p><a href="#howitworks">how it works</a></p>
+          <p><a href="">meet the team</a></p>
+          <p><a href="#contact">contact us</a></p>
         </div>
-        <button className="menu-toggle" onClick={toggleMenu}>
-          {/* to do: menu icon toggles into an 'x and for auth-buttons to go into hamburger menu when minimised' */}
-          {showMenu ? "Close" : "Menu"}
-        </button>
-        <div className={`links ${showMenu ? "show" : ""}`}>
-          <a href="#howitworks">How it works</a>
-          <a href="#faq">FAQ</a>
-          <a href="#">Team</a>
-          <a href="#">Contact</a>
+      </div>
+      <div className="buybuddy__navbar-sign">
+        <button type="button">sign in</button>
+      </div>
+      <div className="buybuddy__navbar-menu">
+        {toggleMenu
+          ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
+          : <RiMenu3Line color="#fff" size={27} onClick={() => setToggleMenu(true)} />}
+        {toggleMenu && (
+        <div className="buybuddy__navbar-menu_container scale-up-center">
+          <div className="buybuddy__navbar-menu_container-links">
+          <p><a href="#howitworks">how it works</a></p>
+          <p><a href="">meet the team</a></p>
+          <p><a href="#contact">contact</a></p>
+          </div>
+          <div className="buybuddy__navbar-menu_container-links-sign">
+            <button type="button">sign in</button>
+          </div>
         </div>
-        <div className={`auth-buttons ${showMenu ? "show" : ""}`}>
-          <button className="login-btn">Login</button>
-        </div>
+        )}
       </div>
     </div>
   );
-}
+};
+
 export default Nav;
