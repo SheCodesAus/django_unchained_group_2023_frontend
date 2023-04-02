@@ -13,8 +13,6 @@
     max-width: 70em;
     width: 100%;
     margin: 0 auto;
-    border: solid;
-    border-color: #fa9fc5;
     border-radius: 10px;
     padding: 30px;
 }
@@ -43,8 +41,8 @@
 }
 
 .news-wrap {
+    padding-top: 10px;
     position: relative;
-    overflow: hidden;
 }
 
 .footer-input {
@@ -57,12 +55,14 @@
     font-size: 10px;
     color: white;
     position: relative;
+    z-index: 1;
 }
 
 .footer-btn {
+    padding: 1px;
+    left: 15em;
     position: absolute;
-    top: 0;
-    left: 16em;
+    z-index: 2;
 }
 
 .footer .btn:hover {
