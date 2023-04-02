@@ -14,6 +14,7 @@ import ShoppingList from "./pages/ShoppingList/ShoppingList";
 
 //Components
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 //CSS
 import "./App.css";
@@ -24,6 +25,7 @@ const Layout = () => {
     <div>
       <Nav />
       <Outlet />
+      <Footer />
     </div>
   );
 };

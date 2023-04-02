@@ -3,12 +3,17 @@
     --body-font: 
   }
 
+  .nav__container {
+    padding: 2rem 6rem;
+    width: 90%;
+    max-width: 80em;
+    margin: auto;
+
+  }
+
   .buybuddy__navbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
-    padding: 2rem 6rem;
 }
 
 .buybuddy__navbar-links {
@@ -37,7 +42,9 @@
 .buybuddy__navbar-links_container {
     display: flex;
     flex-direction: row;
-    padding-right: 20px;
+    align-self:baseline; 
+    align-items: center;
+    justify-content: center;
 }
 
 .buybuddy__navbar-sign {
@@ -65,7 +72,6 @@
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
     font-size: 18px;
-    line-height: 25px;
     border: solid;
     outline: none;
     cursor: pointer;
@@ -131,30 +137,32 @@
     .buybuddy__navbar-menu {
         display: flex;
     }
+
+    .buybuddy__navbar-sign {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 700px) {
     .buybuddy__navbar {
         padding: 2rem 4rem;
     }
-}
 
-@media screen and (max-width: 550px) {
-    .buybuddy__navbar {
-        padding: 2rem;
+    .buybuddy__navbar-sign button {
+        display: none;
+    }
+
+    .buybuddy__navbar-menu_container button {
+        display: none;
+    }
+
+    .buybuddy__navbar-menu {
+        display: flex;
     }
 
     .buybuddy__navbar-sign {
         display: none;
     }
-
-    .buybuddy__navbar-menu_container {
-        top: 20px;
-    }
-
-    .buybuddy__navbar-menu_container-links-sign {
-        display: block;
-    }
 }
 
 @media screen and (max-width: 550px) {
@@ -162,7 +170,7 @@
         padding: 2rem;
     }
 
-    .buybuddy__navbar-sign {
+    .buybuddy__navbar-sign button {
         display: none;
     }
 
@@ -175,11 +183,15 @@
     }
 
     .buybuddy__navbar-sign button {
-        border: none;
+        display: none;
     }
 
     .buybuddy__navbar-menu_container button {
-        border: none;
+        display: none;
+    }
+
+    .buybuddy__navbar-sign {
+        display: none;
     }
 
 

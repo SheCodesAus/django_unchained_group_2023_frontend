@@ -4,19 +4,17 @@
 } 
 
 .hero__container {
+  padding: 2rem 6rem;
+  width: 90%;
+  max-width: 75em;
+  margin: auto;
+}
+
+.split {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 32px;
-
-  padding: 2rem 6rem;
-}
-
-.split {
-  width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero {
@@ -29,9 +27,31 @@
 }
 
 .hero p {
-  margin-bottom: 3em
+  margin-bottom: 5em
   color: white;
 }
+
+.btn-wrap {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding: auto;
+}
+
+.hero-button {
+  background-color: #fa9fc5;
+  color: white;
+  padding: 1em 1.5em;
+  border-radius: 100px;
+  margin: auto;
+}
+
+.btn-subheading {
+  text-transform: uppercase;
+  font-family: "Outfit", sans-serif;
+}
+
 
 .hero-right img {
   margin-top: 3em;
@@ -39,16 +59,57 @@
 
 
 .hero-left {
-  width: 40%;
+  width: 100%;
 }
 
 .hero-right {
-  width: 40%;
+  width: 100%;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1050px) {
   .hero__container {
       display: flex;
       justify-content: space-between;
       align-items: center;
   }
+
+  .btn-wrap {
+    display: flex;
+    flex-direction: column;
+}
+}
+
+@media screen and (max-width: 800px) {
+  .buybuddy__navbar {
+      padding: 2rem;
+  }
+
+  .btn-wrap {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 700px) {
+    .buybuddy__navbar {
+        padding: 2rem;
+    }
+
+    .btn-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 550px) {
+      .buybuddy__navbar {
+          padding: 2rem;
+      }
+
+      .btn-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+}
+
+
