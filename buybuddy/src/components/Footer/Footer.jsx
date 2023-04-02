@@ -19,25 +19,40 @@ const FooterlowerLink = ({ name, path }) => {
 
 function Footer() {
   return (
-    <div className="px-[200px] bg-gray-200 text-xs font-semibold text-gray-600">
-      <div className="flex flex-row py-2">
-        More ways to shop. <FooterStandardLink name="Find an Store" path="/" />
-        or <FooterStandardLink name="other retailer" path="/" /> near you.
-      </div>
-      <div className="flex flex-row justify-between pt-2 pb-6 border-t border-t-gray-400">
-        <div>Copyright 2022 Some Inc. All rights reserved.</div>
-        <div className="flex flex-row gap-6">
-            <FooterlowerLink name="Privacy Policy" to="/" />
-            <FooterlowerLink name="Terms of Use" to="/" />
-            <FooterlowerLink name="Sales and Refunds" to="/" />
-            <FooterlowerLink name="Legal" to="/" />
-            <FooterlowerLink name="Map" to="/" />
+    <div className="footer__container">
+        <div className="footer__section">
+            <div className="footer__column">
+                <div className="footer__title">
+                <a href="#">BUYBUDDY</a>
+                </div>
+                <div className="footer__links">
+             <ul>
+                        <li class="footer-li"><a href="#" class="footer-a">how it works</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">meet the team</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">contact us</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">sign in</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="footer__column">
+             <div className="footer__title">
+                <a href="#">social butterfly?</a>
+                </div>
+                <div className="footer__links">
+             <ul>
+                        <li class="footer-li"><a href="#" class="footer-a">github</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">shecodes</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">linkedin</a></li>
+                        <li class="footer-li"><a href="#" class="footer-a">email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div className="footer__column">
+             <div className="footer__title">
+                <a href="#">join our newsletter</a>
+                </div>
+            </div>
         </div>
-        <div>
-            <FooterlowerLink name="United States" to="/" />
-
-        </div>
-      </div>
     </div>
   );
 }
