@@ -48,10 +48,17 @@ function Footer() {
                 </div>
             </div>
             <div className="footer__column">
-             <div className="footer__title">
-                <a href="#">join our newsletter</a>
+                <div className="footer_newsletter">
+                    <div className="footer__title">
+                        <a href="#">join our newsletter</a>
+                    </div>
+                        <div class="news-wrap">
+                            <input type="text" placeholder="no spam, we promise" class="footer-input">
+                            </input>
+                            <a href="#" class="footer-btn btn">submit</a>
+                         </div>
+                    </div>
                 </div>
-            </div>
         </div>
     </div>
   );

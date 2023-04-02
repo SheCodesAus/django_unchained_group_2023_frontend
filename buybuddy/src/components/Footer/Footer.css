@@ -41,3 +41,43 @@
     padding: 1px;
     list-style: none;
 }
+
+.news-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-input {
+    background-color: #cfe6ff;
+    padding: 1em 6em 1em 1.5em;
+    border-radius: 100px;
+    border: 0;
+    outline: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    color: white;
+    position: relative;
+}
+
+.footer-btn {
+    position: absolute;
+    top: 0;
+    left: 16em;
+}
+
+.footer .btn:hover {
+    background-color: #6effa1;
+}
+
+.btn {
+    background-color: #fa9fc5;
+    color: white;
+    padding: 1em 1.5em;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+}
+
+.btn:hover {
+    background-color:  #6effa1;
+}

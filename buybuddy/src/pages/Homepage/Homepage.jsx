@@ -9,7 +9,9 @@ function HomePage() {
             <div class="split">
                 <div class="hero-left hidden">
                     <h1 class="h1">The New Way To Shop.</h1>
-                    <p class="body">Too many choices, too little time? Say goodbye to shopping anxiety with BestBuddy - your new shopping bestie. </p>
+                    <p class="body">Too many choices, too little time?
+                    {'\n'}
+                    Say goodbye to shopping anxiety with BestBuddy - your new shopping bestie. </p>
 
                     <div className="btn-wrap">
                         <div className="hero-button">
