@@ -108,7 +108,6 @@
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
-    
     text-align: end;
     background: var(--color-footer);
     padding: 2rem;
@@ -152,6 +151,20 @@
         display: none;
     }
 
+    .buybuddy__navbar-menu_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+      }
+    }
+
+    .buybuddy__navbar-menu_toggle {
+        display: block;
+      }
+
     .buybuddy__navbar-menu_container button {
         display: none;
     }
@@ -163,7 +176,7 @@
     .buybuddy__navbar-sign {
         display: none;
     }
-}
+
 
 @media screen and (max-width: 550px) {
     .buybuddy__navbar {
@@ -175,8 +188,18 @@
     }
 
     .buybuddy__navbar-menu_container {
-        top: 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 9999;
+      }
     }
+
+    .buybuddy__navbar-menu_toggle {
+        display: block;
+      }
 
     .buybuddy__navbar-menu_container-links-sign {
         display: block;
@@ -194,5 +217,3 @@
         display: none;
     }
 
-
-}
