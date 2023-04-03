@@ -23,6 +23,7 @@ function AddProductForm(props) {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
+    console.log(props);
     console.log(collection);
     setProducts((prevProducts) => ({
       ...prevProducts,

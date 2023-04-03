@@ -1,0 +1,24 @@
+.product-card-wrapper {
+  width: 100%;
+  border: 1px solid #a6bdd994;
+  border-radius: 16px;
+  padding: 10px 10px 0px 10px;
+}
+
+.product-card-wrapper img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-card-wrapper .brand {
+  font-size: 13px;
+  color: #a6bdd994;
+}
+
+.product-card-wrapper .model {
+  color: #a6bdd9;
+  margin-top: 5px;
+  padding: 0;
+}
