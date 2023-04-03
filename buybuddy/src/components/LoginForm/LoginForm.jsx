@@ -4,7 +4,7 @@ import { Link, useNavigate, useOutletContext } from "react-router-dom";
 import "./LoginForm.css";
 
 function LoginForm() {
-  // const { setLoggedIn } = useOutletContext();
+  const [, setLoggedIn] = useOutletContext();
 
   //State
   const [credentials, setCredentials] = useState({
@@ -43,28 +43,15 @@ function LoginForm() {
     event.preventDefault();
     if (credentials.username && credentials.password) {
       const { token } = await postData();
-      if (token !== undefined) {
-        window.localStorage.setItem("token", token);
-      }
-      //   setLoggedIn(true);
+      window.localStorage.setItem("token", token);
+      setLoggedIn(true);
       navigate("/dashboard");
-      // } else setLoggedIn(false);
-
-      fetch(`${import.meta.env.VITE_API_URL}api-token-auth/`, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      }).then((response) => {
-        console.log(response.json());
-      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="form-wrapper">
-      <h2>Login</h2>
+      <h2>login</h2>
       <div className="form-item">
         <input
           type="text"
@@ -74,7 +61,7 @@ function LoginForm() {
           onChange={handleChange}
         />
         <label htmlFor="username">
-          <span>Username</span>
+          <span>username</span>
         </label>
       </div>
       <div className="form-item">
@@ -86,12 +73,12 @@ function LoginForm() {
           required="required"
         />
         <label htmlFor="password">
-          <span>Password</span>
+          <span>password</span>
         </label>
       </div>
-      <button type="submit">Login</button>
+      <button type="submit">login</button>
       <p>
-        Don't have an account? Register <Link to="/register">here</Link>.
+        don't have an account? register <Link to="/register">here</Link>.
       </p>
     </form>
   );
