@@ -1,7 +1,7 @@
 import React from "react";
 // import { useState } from "react";
 // import { useNavigate, useParams, Link } from "react-router-dom";
-// import Button from "../Button/button";
+import Button from "../Button/button";
 
 //CSS
 import "./AddCollectionForm.css";
@@ -15,20 +15,25 @@ function AddCollectionForm(props) {
   return (
     <div className="form-wrapper">
       <form>
-        <h2>Create A Collection</h2>
+        <h2>create a collection</h2>
         <div className="form-item">
           <input
             type="text"
-            id="name"
-            name="name"
-            onChange={handleChange}
+            id="collection_name"
+            name="collection_name"
             required="required"
+            onChange={handleChange}
+            value={props.collection.collection_name}
           />
-          <label htmlFor="name">
-            <span>Collection Name</span>
+          <label htmlFor="collection_name">
+            <span>collection name</span>
           </label>
         </div>
-        <button type="submit">Create Collection</button>
+        <Button
+          type="submit"
+          handleClick={props.onSubmit}
+          label={props.label}
+        />
       </form>
     </div>
   );

@@ -18,13 +18,16 @@ import Footer from "./components/Footer/Footer";
 
 //CSS
 import "./App.css";
-import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
 
 const Layout = () => {
+  const [loggedIn, setLoggedIn] = useState(
+    window.localStorage.getItem("token") != null
+  );
   return (
     <div>
-      <Nav />
-      <Outlet />
+      <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Outlet context={[loggedIn, setLoggedIn]} />
       <Footer />
     </div>
   );

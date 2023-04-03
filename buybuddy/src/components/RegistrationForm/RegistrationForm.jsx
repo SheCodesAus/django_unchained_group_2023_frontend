@@ -43,7 +43,7 @@ function RegistrationForm() {
   return (
     <div className="form-wrapper">
       <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
+        <h2>register</h2>
         <p>to create your own shopping list</p>
         <div className="form-item">
           <input
@@ -54,7 +54,7 @@ function RegistrationForm() {
             required="required"
           />
           <label htmlFor="username">
-            <span>Username</span>
+            <span>username</span>
           </label>
         </div>
         <div className="form-item">
@@ -66,7 +66,7 @@ function RegistrationForm() {
             required="required"
           />
           <label htmlFor="email">
-            <span>Email</span>
+            <span>email</span>
           </label>
         </div>
         <div className="form-item">
@@ -78,12 +78,12 @@ function RegistrationForm() {
             onChange={handleChange}
           />
           <label htmlFor="password">
-            <span>Password</span>
+            <span>password</span>
           </label>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">register</button>
         <p>
-          Already have an account? Login <Link to="/login">here</Link>.
+          already have an account? login <Link to="/login">here</Link>.
         </p>
       </form>
     </div>

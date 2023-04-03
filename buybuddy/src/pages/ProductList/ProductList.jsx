@@ -9,10 +9,13 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 
 //CSS
 import "./ProductList.css";
+import AddProductForm from "../../components/AddProductForm/AddProductForm";
 
 function ProductList() {
   const authToken = window.localStorage.getItem("token");
-  const [collectionProductList, setCollectionProductList] = useState([]);
+  const [collectionProductList, setCollectionProductList] = useState({
+    products: [],
+  });
 
   const { id } = useParams();
 
@@ -36,9 +39,10 @@ function ProductList() {
     <div>
       <h1>This is the Product List</h1>
       <div id="product-list">
-        {collectionProductList.product_collection?.map((product, key) => {
+        {/* {collectionProductList.product_collection?.map((product, key) => {
           return <ProductCard key={key} productData={product} />;
-        })}
+        })} */}
+        <AddProductForm collectionId={id} />
       </div>
     </div>
   );

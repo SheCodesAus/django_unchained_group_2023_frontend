@@ -5,7 +5,6 @@ import "./ProductCard.css";
 
 function ProductCard(props) {
   const { productData } = props;
-  console.log(productData);
 
   return (
     <div>
