@@ -14,15 +14,18 @@ import ShoppingList from "./pages/ShoppingList/ShoppingList";
 
 //Components
 import Nav from "./components/Nav/Nav";
+import Footer from "./components/Footer/Footer";
 
 //CSS
 import "./App.css";
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
 const Layout = () => {
   return (
     <div>
       <Nav />
       <Outlet />
+      <Footer />
     </div>
   );
 };
