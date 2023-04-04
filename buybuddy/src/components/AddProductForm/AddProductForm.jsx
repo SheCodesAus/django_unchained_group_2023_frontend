@@ -7,7 +7,7 @@ import { useNavigate, useOutletContext } from "react-router-dom";
 //Components
 //CSS
 function AddProductForm(props) {
-  const { collection } = props;
+  const { collectionId } = props;
   const authToken = window.localStorage.getItem("token");
   const [loggedIn] = useOutletContext();
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function AddProductForm(props) {
   const handleChange = (event) => {
     const { id, value } = event.target;
     console.log(props);
-    console.log(collection);
+    console.log(collectionId);
     setProducts((prevProducts) => ({
       ...prevProducts,
       [id]: value,
@@ -45,13 +45,13 @@ function AddProductForm(props) {
               "Content-Type": "application/json",
               Authorization: `Token ${authToken}`,
             },
-            body: JSON.stringify({ collection: collection, ...products }),
+            body: JSON.stringify({ collection: collectionId, ...products }),
           }
         );
         if (!response.ok) {
           throw new Error(await response.text());
         }
-        location.reload();
+        navigate(`/${id}/products`);
       } catch (err) {
         console.error(err);
         alert(`Error: ${err.message}`);

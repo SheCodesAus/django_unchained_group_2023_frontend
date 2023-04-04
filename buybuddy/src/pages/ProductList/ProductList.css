@@ -1,9 +1,9 @@
 #product-list {
   display: grid;
   justify-content: center;
-  grid-template-columns: 30% 30% 30%;
-  column-gap: 30px;
-  row-gap: 10px;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 20px;
+  row-gap: 30px;
 }
 
 .product-list-wrapper {

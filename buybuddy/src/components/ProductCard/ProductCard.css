@@ -2,7 +2,8 @@
   width: 100%;
   border: 1px solid #a6bdd994;
   border-radius: 16px;
-  padding: 10px 10px 0px 10px;
+  padding: 10px 10px 10px 10px;
+  position: relative;
 }
 
 .product-card-wrapper img {
@@ -21,4 +22,23 @@
   color: #a6bdd9;
   margin-top: 5px;
   padding: 0;
+}
+
+.product-card-wrapper ul {
+  list-style-type: none;
+  /* margin-left: 15px; */
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-card-wrapper ul li {
+  display: inline;
+}
+
+.product-card-icon {
+  color: #a6bdd9;
+  transition: 0.2s all ease-in-out;
+}
+.product-card-icon:hover {
+  color: var(--accent-color);
 }
