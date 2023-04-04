@@ -38,7 +38,8 @@ function ProductCard(props) {
   return (
     <div className="product-card-wrapper">
       <div>
-        <img src={productData.image_url}></img>
+        <img className="image_url" img src={productData.image_url}></img>
+        <img className="image_upload" img src={productData.image_upload}></img>
         <p className="model">{productData.product_name}</p>
         <p className="brand">{productData.product_brand}</p>
         <p className="price">${productData.product_price}</p>

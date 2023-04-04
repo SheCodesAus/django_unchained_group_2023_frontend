@@ -16,6 +16,7 @@ function AddProductForm(props) {
     product_brand: "",
     product_name: "",
     image_url: "",
+    image_upload: "",
     product_url: "",
     product_price: "",
     additional_notes: "",
@@ -90,6 +91,19 @@ function AddProductForm(props) {
             />
             <label htmlFor="title">
               <span>title</span>
+            </label>
+          </div>
+          <div className="form-item">
+            <input
+              type="file"
+              id="image_upload"
+              name="image-upload"
+              required="required"
+              onChange={handleChange}
+              value={products.image_upload}
+            />
+            <label htmlFor="image-upload">
+              <span>image upload</span>
             </label>
           </div>
           <div className="form-item">
