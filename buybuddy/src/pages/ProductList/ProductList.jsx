@@ -32,18 +32,19 @@ function ProductList() {
       })
       .then((data) => {
         setCollectionProductList(data);
+        console.log(data);
       });
   }, []);
 
   return (
-    <div>
-      <h1>This is the Product List</h1>
+    <div className="product-list-wrapper">
+      <h2>products</h2>
       <div id="product-list">
-        {/* {collectionProductList.product_collection?.map((product, key) => {
+        {collectionProductList.product_collection?.map((product, key) => {
           return <ProductCard key={key} productData={product} />;
-        })} */}
-        <AddProductForm collectionId={id} />
+        })}
       </div>
+      {/* <AddProductForm collectionId={collectionProductList.id} /> */}
     </div>
   );
 }

@@ -38,13 +38,15 @@ function Dashboard() {
 
   return (
     <div className="dashboard-wrapper">
-      <h1>This is the Dashboard</h1>
+      <h2>dashboard</h2>
       <div id="collection-list">
         {collectionList.map((collection, key) => {
           return <CollectionCard key={key} collectionData={collection} />;
         })}
       </div>
-      <a href="/add-collection">+</a>
+      <a href="/add-collection" className="add-button">
+        +
+      </a>
     </div>
   );
 }

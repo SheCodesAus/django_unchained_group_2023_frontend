@@ -1,4 +1,5 @@
 //Hooks
+import { useParams } from "react-router-dom";
 
 //Pages
 
@@ -9,9 +10,10 @@ import AddProductForm from "../../components/AddProductForm/AddProductForm";
 import "./AddProduct.css";
 
 function AddProduct() {
+  const { id } = useParams();
   return (
     <div>
-      <AddProductForm />
+      <AddProductForm collectionId={id} />
     </div>
   );
 }

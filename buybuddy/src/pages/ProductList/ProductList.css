@@ -1,0 +1,17 @@
+#product-list {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 20px;
+  row-gap: 30px;
+}
+
+.product-list-wrapper {
+  padding: 2rem 6rem;
+  margin: auto;
+}
+
+.product-list-wrapper h2 {
+  font-size: 34px;
+  font-weight: 400;
+}
