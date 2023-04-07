@@ -1,6 +1,11 @@
 //Hooks
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import {
+  useNavigate,
+  useOutlet,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 
 //Pages
 
@@ -18,6 +23,7 @@ function ProductList() {
   });
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}collection-detail/${id}`, {
@@ -36,14 +42,25 @@ function ProductList() {
       });
   }, []);
 
+  //2 functions: if user logged in, check favourites list compared to product list (check heart icon). 2nd function that handles click event for turning heart on and off
+
   return (
     <div className="product-list-wrapper">
       <h2>products</h2>
-      <div id="product-list">
-        {collectionProductList.product_collection?.map((product, key) => {
-          return <ProductCard key={key} productData={product} />;
-        })}
-      </div>
+      {collectionProductList.product_collection?.length ? (
+        <div id="product-list">
+          {collectionProductList.product_collection?.map((product, key) => {
+            return <ProductCard key={key} productData={product} />;
+          })}{" "}
+        </div>
+      ) : (
+        <div className="back-up-text">
+          you haven't added any products to this collection yet!{" "}
+        </div>
+      )}
+      <a href={`/${id}/add-product`} className="add-button">
+        +
+      </a>
       {/* <AddProductForm collectionId={collectionProductList.id} /> */}
     </div>
   );

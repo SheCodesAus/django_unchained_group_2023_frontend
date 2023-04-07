@@ -24,11 +24,29 @@ const Layout = () => {
   const [loggedIn, setLoggedIn] = useState(
     window.localStorage.getItem("token") != null
   );
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const authToken = window.localStorage.getItem("token");
+    fetch(`${import.meta.env.VITE_API_URL}users/authenticated-user`, {
+      method: "get",
+      headers: {
+        Authorization: `Token ${authToken}`,
+      },
+    })
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        setUser(data);
+      });
+  }, [loggedIn]);
+
   return (
     <div>
       <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <Outlet context={[loggedIn, setLoggedIn]} />
-      <Footer />
+      <Outlet context={[loggedIn, setLoggedIn, user]} />
+      {/* <Footer /> */}
     </div>
   );
 };

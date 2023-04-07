@@ -51,7 +51,7 @@ function AddProductForm(props) {
         if (!response.ok) {
           throw new Error(await response.text());
         }
-        navigate(`/${id}/products`);
+        navigate(`/${collectionId}/products`);
       } catch (err) {
         console.error(err);
         alert(`Error: ${err.message}`);

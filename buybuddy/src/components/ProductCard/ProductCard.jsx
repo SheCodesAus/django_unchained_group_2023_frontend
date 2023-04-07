@@ -1,13 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import {
   faMessage,
   faLink,
   faTrash,
   faPen,
+  faHeart as fasHeart,
 } from "@fortawesome/free-solid-svg-icons";
 
 //CSS
@@ -19,21 +20,47 @@ const notesIcon = <FontAwesomeIcon icon={faMessage} />;
 const linkIcon = <FontAwesomeIcon icon={faLink} />;
 const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 const editIcon = <FontAwesomeIcon icon={faPen} />;
-const heartIcon = <FontAwesomeIcon icon={faHeart} />;
+const heartIcon = <FontAwesomeIcon icon={farHeart} />;
+const favouritedIcon = <FontAwesomeIcon icon={fasHeart} color="#fa9fc5" />;
 
 function ProductCard(props) {
   const [modal, setModal] = useState(false);
+  const [favourite, setFavourite] = useState();
   const { productData } = props;
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+  const { user } = useOutletContext();
+
+  const { id } = useParams();
 
   if (modal) {
     document.body.classList.add("active-modal");
   } else {
     document.body.classList.remove("active-modal");
   }
+
+  const addToFavourites = (event) => {
+    const authToken = window.localStorage.getItem("token");
+
+    fetch(`${import.meta.env.VITE_API_URL}users/${id}/favourites/`, {
+      method: "post",
+      headers: {
+        Authorization: `Token ${authToken}`,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.log(response);
+          throw new Error("something went wrong");
+        }
+        setFavourite(true);
+      })
+      .catch(
+        (e) => {
+          console.log(e);
+        },
+        [user]
+      );
+  };
 
   return (
     <div className="product-card-wrapper">
@@ -63,7 +90,22 @@ function ProductCard(props) {
         </li>
         <li className="product-card-icon">{editIcon}</li>
         <li className="product-card-icon">{deleteIcon}</li>
-        <li className="product-card-icon">{heartIcon}</li>
+        {favourite ? (
+          <span>
+            <li className="product-card-icon favourited-icon">
+              {favouritedIcon}
+            </li>
+          </span>
+        ) : (
+          <span>
+            <li
+              className="product-card-icon favourite-icon"
+              onClick={addToFavourites}
+            >
+              {heartIcon}
+            </li>
+          </span>
+        )}
       </ul>
       {modal && (
         <Modal notes={productData.additional_notes} closeModal={setModal} />
