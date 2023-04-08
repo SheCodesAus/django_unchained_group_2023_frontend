@@ -1,4 +1,9 @@
-import { Link, useOutletContext, useParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -25,12 +30,14 @@ const favouritedIcon = <FontAwesomeIcon icon={fasHeart} color="#fa9fc5" />;
 
 function ProductCard(props) {
   const [modal, setModal] = useState(false);
-  const [favourite, setFavourite] = useState();
   const { productData } = props;
+  const [isFavourite, setIsFavourite] = useState(productData.favourite);
 
   const { user } = useOutletContext();
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   if (modal) {
     document.body.classList.add("active-modal");
@@ -38,28 +45,61 @@ function ProductCard(props) {
     document.body.classList.remove("active-modal");
   }
 
-  const addToFavourites = (event) => {
+  const toggleFavourite = () => {
+    const updatedFavourite = { ...productData, favourite: !isFavourite };
+
     const authToken = window.localStorage.getItem("token");
 
-    fetch(`${import.meta.env.VITE_API_URL}users/${id}/favourites/`, {
-      method: "post",
+    fetch(`${import.meta.env.VITE_API_URL}product-detail/${productData.id}/`, {
+      method: "put",
       headers: {
         Authorization: `Token ${authToken}`,
+        "Content-Type": "application/json",
       },
+      body: JSON.stringify(updatedFavourite),
     })
       .then((response) => {
         if (!response.ok) {
           console.log(response);
           throw new Error("something went wrong");
         }
-        setFavourite(true);
+        setIsFavourite(productData.favourite);
       })
-      .catch(
-        (e) => {
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const handleDelete = () => {
+    const authToken = window.localStorage.getItem("token");
+
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+
+    if (confirmDelete) {
+      fetch(
+        `${import.meta.env.VITE_API_URL}product-detail/${productData.id}/`,
+        {
+          method: "delete",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${authToken}`,
+          },
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("something went wrong");
+          }
+          navigate(`/${id}/products`);
+        })
+        .catch((e) => {
           console.log(e);
-        },
-        [user]
-      );
+        });
+    } else {
+      navigate(`/${id}/products`);
+    }
   };
 
   return (
@@ -89,10 +129,15 @@ function ProductCard(props) {
           </a>
         </li>
         <li className="product-card-icon">{editIcon}</li>
-        <li className="product-card-icon">{deleteIcon}</li>
-        {favourite ? (
+        <li className="product-card-icon" onClick={handleDelete}>
+          {deleteIcon}
+        </li>
+        {isFavourite ? (
           <span>
-            <li className="product-card-icon favourited-icon">
+            <li
+              className="product-card-icon favourited-icon"
+              onClick={toggleFavourite}
+            >
               {favouritedIcon}
             </li>
           </span>
@@ -100,7 +145,7 @@ function ProductCard(props) {
           <span>
             <li
               className="product-card-icon favourite-icon"
-              onClick={addToFavourites}
+              onClick={toggleFavourite}
             >
               {heartIcon}
             </li>

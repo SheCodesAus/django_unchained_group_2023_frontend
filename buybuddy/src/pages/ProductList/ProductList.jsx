@@ -18,6 +18,7 @@ import AddProductForm from "../../components/AddProductForm/AddProductForm";
 
 function ProductList() {
   const authToken = window.localStorage.getItem("token");
+  // const [sortedProductList, setSortedProductList] = useState([]);
   const [collectionProductList, setCollectionProductList] = useState({
     products: [],
   });
@@ -42,11 +43,20 @@ function ProductList() {
       });
   }, []);
 
+  const sortProductList = () => {
+    console.log(collectionProductList.product_collection);
+    const sortedList = [...collectionProductList.product_collection].sort(
+      (a, b) => a.product_price - b.product_price
+    );
+    setCollectionProductList(sortedList);
+    console.log(collectionProductList);
+  };
   //2 functions: if user logged in, check favourites list compared to product list (check heart icon). 2nd function that handles click event for turning heart on and off
 
   return (
     <div className="product-list-wrapper">
       <h2>products</h2>
+      <button onClick={sortProductList}>price ↓ to ↑</button>
       {collectionProductList.product_collection?.length ? (
         <div id="product-list">
           {collectionProductList.product_collection?.map((product, key) => {

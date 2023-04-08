@@ -36,38 +36,43 @@
 import { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
-
-async function getProduct(id) {
-  return fetch(`${import.meta.env.VITE_API_URL}product-detail/${id}`).then(
-    (results) => {
-      return results.json();
-    }
-  );
-}
+import ShoppingListItem from "../../components/ShoppingListItem/ShoppingListItem";
+import "./ShoppingList.css";
 
 function ShoppingList() {
-  const [products, setProducts] = useState([]);
-  const { user } = useOutletContext();
+  const authToken = window.localStorage.getItem("token");
 
+  const [shoppingList, setShoppingList] = useState([]);
   useEffect(() => {
-    if (!user) {
-      return;
-    }
-    Promise.all(
-      user.my_favourites.map(async (productId) => {
-        return await getProduct(productId).catch((err) => console.error(err));
+    fetch(`${import.meta.env.VITE_API_URL}favourites/`, {
+      method: "get",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${authToken}`,
+      },
+    })
+      .then((results) => {
+        console.log(results);
+        return results.json();
       })
-    ).then((my_favourites) => setProducts(my_favourites));
-  }, [user]);
+      .then((data) => {
+        setShoppingList(data);
+      });
+  }, []);
+
+  const total = shoppingList
+    .map((item) => item.product_price)
+    .reduce((a, b) => a + b, 0);
 
   return (
-    <div className="profile-wrapper">
+    <div className="shopping-list-wrapper">
       <h2>Your shopping list</h2>
-      {products.length ? (
-        <div id="product-list">
-          {products.map((product, key) => {
-            return <ProductCard key={key} productData={product} />;
+      {shoppingList.length ? (
+        <div id="shopping-list">
+          {shoppingList.map((product, key) => {
+            return <ShoppingListItem key={key} productData={product} />;
           })}{" "}
+          <div className="shopping-list-total">total: ${total}</div>
         </div>
       ) : (
         <div className="profile-wrapper-empty">
