@@ -63,7 +63,8 @@ function ProductCard(props) {
           console.log(response);
           throw new Error("something went wrong");
         }
-        setIsFavourite(productData.favourite);
+        console.log(productData.favourite);
+        setIsFavourite(!isFavourite);
       })
       .catch((e) => {
         console.log(e);
@@ -92,7 +93,7 @@ function ProductCard(props) {
           if (!response.ok) {
             throw new Error("something went wrong");
           }
-          navigate(`/${id}/products`);
+          props.handleDelete();
         })
         .catch((e) => {
           console.log(e);
@@ -128,7 +129,9 @@ function ProductCard(props) {
             {linkIcon}
           </a>
         </li>
-        <li className="product-card-icon">{editIcon}</li>
+        <li className="product-card-icon">
+          <a href={`/${productData.id}/edit-product`}>{editIcon}</a>
+        </li>
         <li className="product-card-icon" onClick={handleDelete}>
           {deleteIcon}
         </li>

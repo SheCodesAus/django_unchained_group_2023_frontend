@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import AddCollection from "./pages/AddCollection/AddCollection";
 import ProductList from "./pages/ProductList/ProductList";
 import AddProduct from "./pages/AddProduct/AddProduct";
+import EditProduct from "./pages/EditProduct/EditProduct";
 import ShoppingList from "./pages/ShoppingList/ShoppingList";
 
 //Components
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
       { path: "/add-collection", element: <AddCollection /> },
       { path: "/:id/products", element: <ProductList /> },
       { path: "/:id/add-product", element: <AddProduct /> },
+      { path: "/:id/edit-product", element: <EditProduct /> },
       { path: "/shopping-list", element: <ShoppingList /> },
     ],
   },

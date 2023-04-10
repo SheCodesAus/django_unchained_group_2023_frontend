@@ -26,7 +26,7 @@ function ProductList() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  const getProducts = () => {
     fetch(`${import.meta.env.VITE_API_URL}collection-detail/${id}`, {
       method: "get",
       headers: {
@@ -41,15 +41,23 @@ function ProductList() {
         setCollectionProductList(data);
         console.log(data);
       });
+  };
+
+  useEffect(() => {
+    getProducts();
   }, []);
+
+  const handleDelete = () => {
+    getProducts();
+  };
 
   const sortProductList = () => {
     console.log(collectionProductList.product_collection);
     const sortedList = [...collectionProductList.product_collection].sort(
       (a, b) => a.product_price - b.product_price
     );
-    setCollectionProductList(sortedList);
-    console.log(collectionProductList);
+    setCollectionProductList({ product_collection: sortedList });
+    console.log(sortedList);
   };
   //2 functions: if user logged in, check favourites list compared to product list (check heart icon). 2nd function that handles click event for turning heart on and off
 
@@ -60,7 +68,13 @@ function ProductList() {
       {collectionProductList.product_collection?.length ? (
         <div id="product-list">
           {collectionProductList.product_collection?.map((product, key) => {
-            return <ProductCard key={key} productData={product} />;
+            return (
+              <ProductCard
+                key={key}
+                productData={product}
+                handleDelete={handleDelete}
+              />
+            );
           })}{" "}
         </div>
       ) : (
