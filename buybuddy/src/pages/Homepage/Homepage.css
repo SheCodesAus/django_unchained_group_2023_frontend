@@ -31,6 +31,15 @@
   color: white;
 }
 
+.circle__one {
+  position: absolute;
+  right: 0;
+  top: 5rem;
+  bottom: 0;
+  user-select: none;
+  z-index: -1;
+}
+
 .btn-wrap {
   display: flex;
   align-items: flex-start;

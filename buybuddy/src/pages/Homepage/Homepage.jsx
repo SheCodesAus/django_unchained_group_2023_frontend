@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import heroimg from "../../assets/hero comp.png";
+import circleone from "../../assets/circle half.png";
 import "./HomePage.css";
 
 function HomePage() {
   return (
     
     <div className="hero__container">
+      <img src={circleone} className="circle__one" alt="hero" />
             <div class="split">
                 <div class="hero-left hidden">
                     <h1 class="h1">The New Way To Shop.</h1>

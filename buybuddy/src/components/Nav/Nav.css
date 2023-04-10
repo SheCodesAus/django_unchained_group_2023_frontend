@@ -1,6 +1,6 @@
 :root {
-    --heading-font: 
-    --body-font: 
+    --heading-font: var(--heading-font)
+    --body-font: var(--heading-font)
   }
 
   .nav__container {
@@ -23,11 +23,36 @@
     align-items: center;
 }
 
-.buybuddy__navbar-links_logo {
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #fa9fc5;
+    ;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    background-color:  #fa9fc5;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.buybuddy__navbar__name {
     margin-right: 2rem;
     justify-content: flex-start;
     color: #fff;
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 100px;
     font-family: 'Outfit', sans-serif;
     font-weight: bold;
@@ -55,15 +80,18 @@
 
 .buybuddy__navbar-links_container p,
 .buybuddy__navbar-sign p,
-.buybuddy__navbar-menu_container p {
+.buybuddy__navbar-menu_container p,
+.buybuddy__navbar-menu_container .hover-underline-animation {
     color: #fff;
     font-family: 'Outfit', sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 25px;
     margin: 0 1rem;
     cursor: pointer;
 }
+
+.buybuddy__navbar-links_container 
 
 .buybuddy__navbar-sign button {
     padding: 0.5rem 1rem;
@@ -94,13 +122,22 @@
 
 .buybuddy__navbar-menu {
     margin-left: 1rem;
-
     display: none;
     position: relative;
 }
 
 .buybuddy__navbar-menu svg {
     cursor: pointer;
+    display: none;
+}
+
+.circle__two {
+    position: absolute;
+    left: -300px;
+    top: -750px;
+    user-select: none;
+    z-index: -1;
+    
 }
 
 .buybuddy__navbar-menu_container {
@@ -127,24 +164,38 @@
 .buybuddy__navbar-menu_container-links-sign {
     display: none;
 }
+/even
+
+
+
+/* MEDIA QUERIES */
 
 @media screen and (max-width: 1050px) {
+    .buybuddy__navbar-menu_container {
+        display: flex;
+    }
+
     .buybuddy__navbar-links_container {
         display: none;
-    }
 
     .buybuddy__navbar-menu {
         display: flex;
     }
 
     .buybuddy__navbar-sign {
-        display: none;
+        display: flex;
+    }
+
+    .buybuddy__navbar-menu svg {
+        cursor: pointer;
+        display: flex;
     }
 }
 
 @media screen and (max-width: 700px) {
-    .buybuddy__navbar {
-        padding: 2rem 4rem;
+    .buybuddy__navbar-menu svg {
+        cursor: pointer;
+        display: flex;
     }
 
     .buybuddy__navbar-sign button {

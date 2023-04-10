@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 import "./Nav.css";
 import { useRef, useState } from "react";
+import circletwo from "../../assets/circle 2.png";
 
 
 
@@ -14,20 +15,24 @@ function Nav(props) {
   return (
     <div className="nav__container">
       <div className="buybuddy__navbar">
-        <div className="buybuddy__navbar-links_logo">
-          {/* <img src={logo} /> */}
-          {/* put logo here later */}
-          <a href="#">BUYBUDDY</a></div>
+        <div className="buybuddy__navbar__name">
+        <img src={circletwo} className="circle__two" alt="circle__two" />
+          <a href="/">BUYBUDDY</a></div>
         <div className="buybuddy__navbar-links">
           <div className="buybuddy__navbar-links_container">
-            <p><a href="#howitworks">how it works</a></p>
-            <p><a href="">meet the team</a></p>
-            <p><a href="#contact">contact us</a></p>
+          <p class="hover-underline-animation">
+            <Link to="/howitworks">how it works</Link></p>
+          <p class="hover-underline-animation">
+          <Link to="/meetheteam">meet the team</Link></p>
+          <p class="hover-underline-animation">
+          <Link to="/contact">contact us</Link></p>
+          <p class="hover-underline-animation">
+            <Link to="/signin">sign in</Link></p>
           </div>
+    
+
         </div>
-        <div className="buybuddy__navbar-sign">
-        <p><a href="#signin">sign in</a>sign in</p>
-        </div>
+        
         <div className="buybuddy__navbar-menu">
           {toggleMenu
             ? <RiCloseLine color="#fff" size={27} onClick={() => setToggleMenu(false)} />
@@ -39,8 +44,7 @@ function Nav(props) {
             <p><a href="">meet the team</a></p>
             <p><a href="#contact">contact</a></p>
             <p><a href="">sign in</a></p>
-            </div>
-            <div className="buybuddy__navbar-menu_container-links-sign">
+            <p><a href="">sign up</a></p>
             </div>
           </div>
           )}
