@@ -16,8 +16,9 @@ function AddCollection(props) {
     collection_name: "",
   });
 
-  const navigate = useNavigate();
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const handleChange = (id, value) => {
     setCollection((prevCollection) => ({ ...prevCollection, [id]: value }));

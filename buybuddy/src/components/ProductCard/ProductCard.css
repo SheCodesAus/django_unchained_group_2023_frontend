@@ -41,4 +41,12 @@
 }
 .product-card-icon:hover {
   color: var(--accent-color);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .product-card-wrapper {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }

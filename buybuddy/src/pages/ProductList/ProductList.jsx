@@ -39,7 +39,6 @@ function ProductList() {
       })
       .then((data) => {
         setCollectionProductList(data);
-        console.log(data);
       });
   };
 
@@ -52,19 +51,33 @@ function ProductList() {
   };
 
   const sortProductList = () => {
-    console.log(collectionProductList.product_collection);
     const sortedList = [...collectionProductList.product_collection].sort(
       (a, b) => a.product_price - b.product_price
     );
-    setCollectionProductList({ product_collection: sortedList });
-    console.log(sortedList);
+    setCollectionProductList({
+      product_collection: sortedList,
+      collection_name: collectionProductList.collection_name,
+    });
   };
-  //2 functions: if user logged in, check favourites list compared to product list (check heart icon). 2nd function that handles click event for turning heart on and off
 
   return (
     <div className="product-list-wrapper">
-      <h2>products</h2>
-      <button onClick={sortProductList}>price ↓ to ↑</button>
+      <div className="product-list-header">
+        <h2>
+          products{" "}
+          <span className="product-list-collection">
+            {" "}
+            in collection: {collectionProductList.collection_name}
+          </span>
+        </h2>
+        {collectionProductList.product_collection?.length ? (
+          <button onClick={sortProductList} className="sort-product-button">
+            sort ↓ to ↑
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
       {collectionProductList.product_collection?.length ? (
         <div id="product-list">
           {collectionProductList.product_collection?.map((product, key) => {

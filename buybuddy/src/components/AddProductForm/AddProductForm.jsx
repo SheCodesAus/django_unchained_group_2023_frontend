@@ -39,6 +39,12 @@ function AddProductForm(props) {
     }
   };
 
-  return <ProductForm handleSubmit={handleSubmit} />;
+  return (
+    <ProductForm
+      handleSubmit={handleSubmit}
+      label="add product"
+      header="add product"
+    />
+  );
 }
 export default AddProductForm;

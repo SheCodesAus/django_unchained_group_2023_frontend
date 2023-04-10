@@ -60,10 +60,8 @@ function ProductCard(props) {
     })
       .then((response) => {
         if (!response.ok) {
-          console.log(response);
           throw new Error("something went wrong");
         }
-        console.log(productData.favourite);
         setIsFavourite(!isFavourite);
       })
       .catch((e) => {

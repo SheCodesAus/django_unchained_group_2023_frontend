@@ -107,8 +107,11 @@ form a {
 }
 
 @media (max-width: 768px) {
+  .form-item input,
+  .form-item textarea {
+    width: 100%;
+  }
   .form-item {
     width: 300px;
-    left: -20px;
   }
 }
