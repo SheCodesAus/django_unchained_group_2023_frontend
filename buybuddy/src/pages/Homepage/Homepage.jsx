@@ -29,3 +29,31 @@ function HomePage() {
 };
 
 export default HomePage;
+
+// import features component at the top of the page
+// putting where i want to use it 
+// pass in props 
+// e.g. import features 
+// name the feature component and use it </ featru
+
+/* EXAMPLE
+ import {features}  from 'path to fetaure component'
+
+ function page() {
+
+
+  const featureSetting = {
+    imageSrc='google.com/phots",
+    title='titel of feature',
+    descr='sdkhfasdlkfhsadklhfdslkah'
+  }
+
+  return (
+    <div>
+      <features imageSrc={featureSetting.imagesrc} title={featureSetting.title} descr={featureSetting.descr} />
+    </div>
+  )
+ }
+
+
+ */

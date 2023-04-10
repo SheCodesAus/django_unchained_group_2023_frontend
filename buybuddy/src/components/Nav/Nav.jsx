@@ -26,7 +26,7 @@ function Nav(props) {
           </div>
         </div>
         <div className="buybuddy__navbar-sign">
-        <p><a href="#signin">sign in</a></p>
+        <p><a href="#signin">sign in</a>sign in</p>
         </div>
         <div className="buybuddy__navbar-menu">
           {toggleMenu
