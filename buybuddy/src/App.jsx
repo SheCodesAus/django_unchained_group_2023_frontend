@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import AddCollection from "./pages/AddCollection/AddCollection";
 import ProductList from "./pages/ProductList/ProductList";
 import AddProduct from "./pages/AddProduct/AddProduct";
+import EditProduct from "./pages/EditProduct/EditProduct";
 import ShoppingList from "./pages/ShoppingList/ShoppingList";
 
 //Components
@@ -24,11 +25,29 @@ const Layout = () => {
   const [loggedIn, setLoggedIn] = useState(
     window.localStorage.getItem("token") != null
   );
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const authToken = window.localStorage.getItem("token");
+    fetch(`${import.meta.env.VITE_API_URL}users/authenticated-user`, {
+      method: "get",
+      headers: {
+        Authorization: `Token ${authToken}`,
+      },
+    })
+      .then((results) => {
+        return results.json();
+      })
+      .then((data) => {
+        setUser(data);
+      });
+  }, [loggedIn]);
+
   return (
     <div>
       <Nav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      <Outlet context={[loggedIn, setLoggedIn]} />
-      <Footer />
+      <Outlet context={[loggedIn, setLoggedIn, user]} />
+      {/* <Footer /> */}
     </div>
   );
 };
@@ -44,6 +63,7 @@ const router = createBrowserRouter([
       { path: "/add-collection", element: <AddCollection /> },
       { path: "/:id/products", element: <ProductList /> },
       { path: "/:id/add-product", element: <AddProduct /> },
+      { path: "/:id/edit-product", element: <EditProduct /> },
       { path: "/shopping-list", element: <ShoppingList /> },
     ],
   },

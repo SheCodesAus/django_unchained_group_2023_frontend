@@ -1,13 +1,19 @@
-import { Link } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useOutletContext,
+  useParams,
+} from "react-router-dom";
 import { useState } from "react";
 import ReactDOM from "react-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
 import {
   faMessage,
   faLink,
   faTrash,
   faPen,
+  faHeart as fasHeart,
 } from "@fortawesome/free-solid-svg-icons";
 
 //CSS
@@ -19,21 +25,83 @@ const notesIcon = <FontAwesomeIcon icon={faMessage} />;
 const linkIcon = <FontAwesomeIcon icon={faLink} />;
 const deleteIcon = <FontAwesomeIcon icon={faTrash} />;
 const editIcon = <FontAwesomeIcon icon={faPen} />;
-const heartIcon = <FontAwesomeIcon icon={faHeart} />;
+const heartIcon = <FontAwesomeIcon icon={farHeart} />;
+const favouritedIcon = <FontAwesomeIcon icon={fasHeart} color="#fa9fc5" />;
 
 function ProductCard(props) {
   const [modal, setModal] = useState(false);
   const { productData } = props;
+  const [isFavourite, setIsFavourite] = useState(productData.favourite);
 
-  const toggleModal = () => {
-    setModal(!modal);
-  };
+  const { user } = useOutletContext();
+
+  const { id } = useParams();
+
+  const navigate = useNavigate();
 
   if (modal) {
     document.body.classList.add("active-modal");
   } else {
     document.body.classList.remove("active-modal");
   }
+
+  const toggleFavourite = () => {
+    const updatedFavourite = { ...productData, favourite: !isFavourite };
+
+    const authToken = window.localStorage.getItem("token");
+
+    fetch(`${import.meta.env.VITE_API_URL}product-detail/${productData.id}/`, {
+      method: "put",
+      headers: {
+        Authorization: `Token ${authToken}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedFavourite),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          console.log(response);
+          throw new Error("something went wrong");
+        }
+        console.log(productData.favourite);
+        setIsFavourite(!isFavourite);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  const handleDelete = () => {
+    const authToken = window.localStorage.getItem("token");
+
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this item?"
+    );
+
+    if (confirmDelete) {
+      fetch(
+        `${import.meta.env.VITE_API_URL}product-detail/${productData.id}/`,
+        {
+          method: "delete",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${authToken}`,
+          },
+        }
+      )
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("something went wrong");
+          }
+          props.handleDelete();
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      navigate(`/${id}/products`);
+    }
+  };
 
   return (
     <div className="product-card-wrapper">
@@ -61,9 +129,31 @@ function ProductCard(props) {
             {linkIcon}
           </a>
         </li>
-        <li className="product-card-icon">{editIcon}</li>
-        <li className="product-card-icon">{deleteIcon}</li>
-        <li className="product-card-icon">{heartIcon}</li>
+        <li className="product-card-icon">
+          <a href={`/${productData.id}/edit-product`}>{editIcon}</a>
+        </li>
+        <li className="product-card-icon" onClick={handleDelete}>
+          {deleteIcon}
+        </li>
+        {isFavourite ? (
+          <span>
+            <li
+              className="product-card-icon favourited-icon"
+              onClick={toggleFavourite}
+            >
+              {favouritedIcon}
+            </li>
+          </span>
+        ) : (
+          <span>
+            <li
+              className="product-card-icon favourite-icon"
+              onClick={toggleFavourite}
+            >
+              {heartIcon}
+            </li>
+          </span>
+        )}
       </ul>
       {modal && (
         <Modal notes={productData.additional_notes} closeModal={setModal} />
