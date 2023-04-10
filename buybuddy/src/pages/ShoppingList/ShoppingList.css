@@ -1,0 +1,16 @@
+.shopping-list-wrapper {
+  text-align: center;
+  margin: 0 auto;
+  width: 700px;
+  border-radius: 16px;
+  border: 1px solid #a6bdd9;
+  padding: 20px;
+}
+
+.shopping-list-total {
+  font-family: var(--body-font-family);
+  color: #a6bdd9;
+  font-weight: 600;
+  text-align: end;
+  margin-right: 15px;
+}

@@ -11,7 +11,6 @@ import "./Registration.css";
 function Registration() {
   return (
     <div>
-      <h1>This is the Registration page</h1>
       <RegistrationForm />
     </div>
   );

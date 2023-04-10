@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import "./RegistrationForm.css";
+import "../FormStyles.css";
 
 function RegistrationForm() {
   const authToken = window.localStorage.getItem("token");
@@ -40,54 +41,63 @@ function RegistrationForm() {
   };
 
   return (
-    <div className="registration-form-wrapper">
-      <h2>Create your very own shopping list</h2>
-      <p>
-        Register now to create your shopping list.
-      </p>
-      <form onSubmit={handleSubmit}>
-        <h2>Register </h2>
-        <div className="form-item">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            onChange={handleChange}
-            required="required"
-          />
-          <label htmlFor="username">
-            <span>Username</span>
-          </label>
+    <div>
+      {authToken ? (
+        <div className="back-up-text">
+          <h2>register</h2>
+          <p>
+            You're already registered and logged in! Go to your{" "}
+            <Link to="/dashboard">dashboard</Link>.
+          </p>
         </div>
-        <div className="form-item">
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={handleChange}
-            required="required"
-          />
-          <label htmlFor="email">
-            <span>Email</span>
-          </label>
+      ) : (
+        <div className="form-wrapper">
+          <form onSubmit={handleSubmit}>
+            <h2>register</h2>
+            <p>to create your own shopping list</p>
+            <div className="form-item">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                onChange={handleChange}
+                required="required"
+              />
+              <label htmlFor="username">
+                <span>username</span>
+              </label>
+            </div>
+            <div className="form-item">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={handleChange}
+                required="required"
+              />
+              <label htmlFor="email">
+                <span>email</span>
+              </label>
+            </div>
+            <div className="form-item">
+              <input
+                type="text"
+                id="password"
+                name="password"
+                required="required"
+                onChange={handleChange}
+              />
+              <label htmlFor="password">
+                <span>password</span>
+              </label>
+            </div>
+            <button type="submit">register</button>
+            <p>
+              already have an account? login <Link to="/login">here</Link>.
+            </p>
+          </form>
         </div>
-        <div className="form-item">
-          <input
-            type="text"
-            id="password"
-            name="password"
-            required="required"
-            onChange={handleChange}
-          />
-          <label htmlFor="password">
-            <span>Password</span>
-          </label>
-        </div>
-        <button type="submit">Register</button>
-        <p>
-          Already have an account? Login <Link to="/login">here</Link>.
-        </p>
-      </form>
+      )}
     </div>
   );
 }

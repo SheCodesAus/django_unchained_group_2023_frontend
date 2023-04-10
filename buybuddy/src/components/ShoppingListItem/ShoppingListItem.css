@@ -1,0 +1,29 @@
+.shopping-list-item-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  justify-content: space-between;
+}
+
+.shopping-list-item-wrapper img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 999px;
+  display: inline;
+}
+
+.shopping-list-item-wrapper .shopping-list-brand {
+  color: #a6bdd994;
+}
+
+.shopping-list-item-wrapper .shopping-list-model {
+  color: #a6bdd9;
+}
+
+.shopping-list-item-wrapper .shopping-list-link {
+  font-family: var(--body-font-family);
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  color: white;
+}
