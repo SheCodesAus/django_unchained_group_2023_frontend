@@ -252,8 +252,8 @@
         height: 50%;
         width: 100%;
         z-index: -1;
-        justify-content: flex-center;
-        align-items: flex-center;
+        justify-content: center;
+        align-items: center;
         flex-direction: column;
         text-align: center;
         background: var(--color-footer);

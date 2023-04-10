@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import heroimg from "../../assets/hero comp.png";
 import circleone from "../../assets/circle half.png";
 import "./HomePage.css";
+import "./Features.css";
+import { Feature } from "../../components/Feature/Feature";
 
 function HomePage() {
   return (

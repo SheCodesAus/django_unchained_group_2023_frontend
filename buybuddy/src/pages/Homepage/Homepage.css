@@ -163,7 +163,8 @@
   }
 
   .hero-left {
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
     }
 
   .hero-right {
@@ -176,6 +177,11 @@
 
   .hero-button {
     margin: auto;
+  }
+
+  .hero__container {
+    align-items: center;
+    align-content: center;
   }
 
 }

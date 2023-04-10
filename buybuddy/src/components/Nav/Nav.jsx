@@ -42,7 +42,7 @@ function Nav(props) {
             <div className="buybuddy__navbar-menu_container-links">
             <p><a href="#howitworks">how it works</a></p>
             <p><a href="">meet the team</a></p>
-            <p><a href="#contact">contact</a></p>
+            <p><a href="#contact">contact us</a></p>
             <p><a href="">sign in</a></p>
             <p><a href="">sign up</a></p>
             </div>
