@@ -1,7 +1,7 @@
 import React from "react";
 // import { useState } from "react";
 // import { useNavigate, useParams, Link } from "react-router-dom";
-import Button from "../button/button";
+import Button from "../Button/Button";
 
 //CSS
 import "./AddCollectionForm.css";

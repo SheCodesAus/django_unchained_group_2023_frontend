@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "../button/button";
+import Button from "../Button/Button";
 import "./ProductForm.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 //Hooks
