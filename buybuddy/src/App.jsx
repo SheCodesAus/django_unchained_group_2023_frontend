@@ -19,6 +19,7 @@ import Footer from "./components/Footer/Footer";
 //CSS
 import "./App.css";
 import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import NotFound from "./pages/NotFound/NotFound";
 
 const Layout = () => {
   return (
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       { path: "/:id/products", element: <ProductList /> },
       { path: "/add-product", element: <AddProduct /> },
       { path: "/shopping-list", element: <ShoppingList /> },
+      { path: "/contact-us", element: <ContactUs />},
+      { path: "/meet-the-team", element: <MeetTheTeam />},
+      { path: "/how-it-works", element: <HowItWorks />},
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
