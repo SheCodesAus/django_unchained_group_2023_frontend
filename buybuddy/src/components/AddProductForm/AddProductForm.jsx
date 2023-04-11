@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Button from "../Button/button";
 import "./AddProductForm.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 //Hooks
@@ -40,6 +39,12 @@ function AddProductForm(props) {
     }
   };
 
-  return <ProductForm handleSubmit={handleSubmit} />;
+  return (
+    <ProductForm
+      handleSubmit={handleSubmit}
+      label="add product"
+      header="add product"
+    />
+  );
 }
 export default AddProductForm;

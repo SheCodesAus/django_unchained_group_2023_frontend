@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import heroimg from "../../assets/hero comp.png";
-import "./HomePage.css";
+import "./Homepage.css";
 import { Link } from "react-router-dom";
 
 function HomePage() {

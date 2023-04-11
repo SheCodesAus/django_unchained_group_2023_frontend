@@ -1,38 +1,3 @@
-// //Hooks
-// import { useEffect, useState } from "react";
-// import { useOutletContext, useParams } from "react-router-dom";
-
-// //Pages
-
-// //Components
-
-// //CSS
-// import "./ShoppingList.css";
-
-// function ShoppingList() {
-//   // const [user, setUser] = useState();
-//   const { user } = useOutletContext;
-//   const authToken = window.localStorage.getItem("token");
-//   const { id } = useParams();
-
-//   // useEffect(() => {
-//   //   fetch(`${import.meta.env.VITE_API_URL}users/${id}`)
-//   //     .then((results) => {
-//   //       console.log(results);
-//   //       return results.json();
-//   //     })
-//   //     .then((data) => {});
-//   // }, []);
-
-//   return (
-//     <div>
-//       <h1>{user.username}</h1>
-//     </div>
-//   );
-// }
-
-// export default ShoppingList;
-
 import { useEffect, useState } from "react";
 import { Link, useOutletContext } from "react-router-dom";
 import ProductCard from "../../components/ProductCard/ProductCard";
@@ -52,7 +17,6 @@ function ShoppingList() {
       },
     })
       .then((results) => {
-        console.log(results);
         return results.json();
       })
       .then((data) => {

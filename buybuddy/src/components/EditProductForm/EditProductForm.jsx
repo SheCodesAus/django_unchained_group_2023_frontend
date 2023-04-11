@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button/button";
 import "./EditProductForm.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 //Hooks
@@ -29,7 +28,6 @@ function EditProductForm(props) {
               return results.json();
             })
             .then((data) => {
-              console.log(data);
               setProduct(data);
             });
         } catch (err) {
@@ -57,7 +55,6 @@ function EditProductForm(props) {
         })
           .then((response) => {
             if (!response.ok) {
-              console.log(response);
               throw new Error("something went wrong");
             }
             return response.json();
@@ -75,6 +72,13 @@ function EditProductForm(props) {
     }
   };
 
-  return <ProductForm {...product} handleSubmit={handleSubmit} />;
+  return (
+    <ProductForm
+      {...product}
+      handleSubmit={handleSubmit}
+      label="save changes"
+      header="edit product"
+    />
+  );
 }
 export default EditProductForm;

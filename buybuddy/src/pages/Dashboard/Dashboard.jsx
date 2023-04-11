@@ -14,7 +14,6 @@ function Dashboard() {
   const [collectionList, setCollectionList] = useState([]);
 
   const sortCollectionList = (data) => {
-    console.log(data);
     const sortedList = [...data].sort((a, b) =>
       a.collection_name.localeCompare(b.collection_name)
     );

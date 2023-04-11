@@ -1,5 +1,5 @@
 .dashboard-wrapper {
-  padding: 2rem 6rem;
+  padding: 1rem 10rem;
   margin: auto;
 }
 
@@ -11,8 +11,8 @@
 #collection-list {
   display: grid;
   justify-content: center;
-  grid-template-columns: 30% 30% 30%;
-  column-gap: 20px;
+  grid-template-columns: 33% 33% 33%;
+  column-gap: 30px;
   row-gap: 10px;
 }
 
@@ -35,4 +35,20 @@
 .dashboard-wrapper .add-button:hover {
   background-color: var(--accent-color);
   color: white;
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    text-align: center;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  .dashboard-wrapper h2 {
+    margin-bottom: 10px;
+  }
+  #collection-list {
+    grid-template-columns: 100%;
+    row-gap: 5px;
+  }
 }

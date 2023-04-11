@@ -9,7 +9,7 @@ function Modal(props) {
         <div className="close-button">
           <button onClick={() => closeModal(false)}>&times;</button>
         </div>
-        <div className="modal-title">Additional Notes:</div>
+        <div className="modal-title">Additional Notes</div>
         <div className="modal-body">{notes}</div>
       </div>
     </div>

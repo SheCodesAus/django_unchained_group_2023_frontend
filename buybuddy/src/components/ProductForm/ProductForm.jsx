@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Button from "../Button/button";
+import Button from "../Button/Button";
 import "./ProductForm.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 //Hooks
@@ -41,8 +41,6 @@ function ProductForm(props) {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    console.log(props);
-    console.log(collectionId);
     setProducts((prevProducts) => ({
       ...prevProducts,
       [id]: value,
@@ -58,7 +56,7 @@ function ProductForm(props) {
     <div>
       {loggedIn ? (
         <form className="form-wrapper">
-          <h2>add a product</h2>
+          <h2>{props.header}</h2>
           <div className="form-item">
             <input
               type="text"
@@ -76,13 +74,13 @@ function ProductForm(props) {
             <input
               type="text"
               id="product_name"
-              name="title"
+              name="name"
               required="required"
               onChange={handleChange}
               value={products.product_name}
             />
-            <label htmlFor="title">
-              <span>title</span>
+            <label htmlFor="name">
+              <span>name</span>
             </label>
           </div>
           <div className="form-item">
@@ -141,7 +139,7 @@ function ProductForm(props) {
           <Button
             type="submit"
             handleClick={handleSubmit}
-            label="add product"
+            label={props.label}
           />
         </form>
       ) : (

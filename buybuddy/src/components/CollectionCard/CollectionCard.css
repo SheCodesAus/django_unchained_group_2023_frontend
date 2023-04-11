@@ -7,7 +7,7 @@
   border: 1px solid #a6bdd994;
   transition: 0.3s all ease-in-out;
   border-radius: 16px;
-  width: 200px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,4 +23,11 @@
   font-size: 22px;
   text-transform: lowercase;
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .collection-card-wrapper {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
 }
