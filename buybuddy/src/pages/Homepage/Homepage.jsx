@@ -4,6 +4,8 @@ import "./Homepage.css";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+  const authToken = window.localStorage.getItem("token");
+
   return (
     <div className="hero__container">
       <div class="split">
@@ -12,15 +14,21 @@ function HomePage() {
           <p class="body">
             Too many choices, too little time?
             {"\n"}
-            Say goodbye to shopping anxiety with BestBuddy - your new shopping
+            Say goodbye to shopping anxiety with BuyBuddy - your new shopping
             bestie.{" "}
           </p>
 
           <div className="btn-wrap">
             <div className="hero-button">
-              <Link to="/register" className="btn-subheading">
-                sign up
-              </Link>
+              {!authToken ? (
+                <Link to="/register" className="btn-subheading">
+                  sign up
+                </Link>
+              ) : (
+                <Link to="/dashboard" className="btn-subheading">
+                  dashboard
+                </Link>
+              )}
             </div>
           </div>
         </div>

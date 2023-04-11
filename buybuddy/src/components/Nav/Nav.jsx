@@ -22,22 +22,34 @@ function Nav(props) {
     <div className="nav__container" ref={navRef}>
       <div className="buybuddy__navbar">
         <div className="buybuddy__navbar-links_logo">
-          {/* <img src={logo} /> */}
-          {/* put logo here later */}
           <a href="/">BUYBUDDY</a>
         </div>
         <div className="buybuddy__navbar-links">
-          <div className="buybuddy__navbar-links_container">
-            <p>
-              <a href="#howitworks">how it works</a>
-            </p>
-            <p>
-              <a href="">meet the team</a>
-            </p>
-            <p>
-              <a href="#contact">contact us</a>
-            </p>
-          </div>
+          {!loggedIn ? (
+            <div className="buybuddy__navbar-links_container">
+              <p>
+                <a href="#howitworks">how it works</a>
+              </p>
+              <p>
+                <a href="/meet-the-team">meet the team</a>
+              </p>
+              <p>
+                <a href="#contact">contact us</a>
+              </p>
+            </div>
+          ) : (
+            <div className="buybuddy__navbar-links_container">
+              <p>
+                <a href="/dashboard">dashboard</a>
+              </p>
+              <p>
+                <a href="/shopping-list">shopping list</a>
+              </p>
+              <p>
+                <a href="#contact">contact us</a>
+              </p>
+            </div>
+          )}
         </div>
         <div className="buybuddy__navbar-sign">
           <p>{!loggedIn && <a href="#signin">sign in</a>}</p>
@@ -63,13 +75,19 @@ function Nav(props) {
                   <a href="#howitworks">how it works</a>
                 </p>
                 <p>
-                  <a href="">meet the team</a>
+                  <a href="/meet-the-team">meet the team</a>
                 </p>
                 <p>
                   <a href="#contact">contact</a>
                 </p>
-                <p>{!loggedIn && <Link to="/login">sign in</Link>}</p>
-                <p>{loggedIn && <a onClick={handleClick}>sign out</a>}</p>
+                <p>
+                  {!loggedIn ? (
+                    <Link to="/login">sign in</Link>
+                  ) : (
+                    <a onClick={handleClick}>sign out</a>
+                  )}
+                </p>
+                {/* <p>{loggedIn && <a onClick={handleClick}>sign out</a>}</p> */}
               </div>
               <div className="buybuddy__navbar-menu_container-links-sign"></div>
             </div>
