@@ -22,7 +22,7 @@ return (
         </div>
     </div>
 );
-
+ 
 return (
 
     <div className="slide-right-1">
