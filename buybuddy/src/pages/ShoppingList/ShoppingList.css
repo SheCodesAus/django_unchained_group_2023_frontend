@@ -14,3 +14,7 @@
   text-align: end;
   margin-right: 15px;
 }
+
+.profile-wrapper-empty p a {
+  color: var(--accent-color);
+}

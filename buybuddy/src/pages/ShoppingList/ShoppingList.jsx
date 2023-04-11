@@ -43,7 +43,7 @@ function ShoppingList() {
           <h2>Oh no!</h2>
           <p>
             You haven't added any products to your shopping list. Go to your{" "}
-            <Link to="/dashboard">Dashboard</Link> to explore.
+            <Link to="/dashboard">dashboard</Link> to explore.
           </p>
         </div>
       )}
