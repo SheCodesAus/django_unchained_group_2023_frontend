@@ -5,9 +5,12 @@ import "./HomePage.css";
 import "./Features.css";
 import { Feature } from "../../components/Feature/Feature";
 
+import "./Homepage.css";
+import { Link } from "react-router-dom";
+
+
 function HomePage() {
   return (
-    
     <div className="hero__container">
       <img src={circleone} className="circle__one" alt="hero" />
             <div class="split">
@@ -17,21 +20,24 @@ function HomePage() {
                     {'\n'}
                     Say goodbye to shopping anxiety with BestBuddy - your new shopping bestie. </p>
 
-                    <div className="btn-wrap">
-                        <div className="hero-button">
-                        <a href="#" className="btn-subheading">sign up</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-right hidden">
-                    <img src={heroimg} className="hero-img" alt="hero" />
-            </div>
-        </div>
-    </div>
 
+          <div className="btn-wrap">
+            <div className="hero-button">
+              <Link to="/register" className="btn-subheading">
+                sign up
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right hidden">
+          <img src={heroimg} className="hero-img" alt="hero" />
+        </div>
+      </div>
+    </div>
   );
   
 };
+
 
 export default HomePage;
 

@@ -1,0 +1,17 @@
+.back-up-text p {
+  margin-top: 30px;
+  color: #a6bdd994;
+}
+
+.back-up-text h2 {
+  color: #a6bdd9;
+}
+
+.back-up-text a {
+  color: white;
+  transition: 0.2s all ease-in-out;
+}
+
+.back-up-text a:hover {
+  color: var(--accent-color);
+}
