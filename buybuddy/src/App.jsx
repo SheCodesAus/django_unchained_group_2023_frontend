@@ -19,7 +19,9 @@ import Footer from "./components/Footer/Footer";
 
 //CSS
 import "./App.css";
-import { RiMenu3Line, RiCloseLine } from "react-icons/ri";
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
+import NotFound from "./pages/NotFound/NotFound";
+
 
 const Layout = () => {
   const [loggedIn, setLoggedIn] = useState(
@@ -65,6 +67,10 @@ const router = createBrowserRouter([
       { path: "/:id/add-product", element: <AddProduct /> },
       { path: "/:id/edit-product", element: <EditProduct /> },
       { path: "/shopping-list", element: <ShoppingList /> },
+      { path: "/contact-us", element: <ContactUs />},
+      { path: "/meet-the-team", element: <MeetTheTeam />},
+      { path: "/how-it-works", element: <HowItWorks />},
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);

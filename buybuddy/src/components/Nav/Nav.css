@@ -1,9 +1,17 @@
+
+:root {
+    --heading-font: var(--heading-font)
+    --body-font: var(--heading-font)
+  }
+
+
 .nav__container {
   padding: 2rem 6rem;
   width: 90%;
   max-width: 80em;
   margin: auto;
 }
+
 
 .buybuddy__navbar {
   display: flex;
@@ -17,6 +25,40 @@
   align-items: center;
 }
 
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #fa9fc5;
+    ;
+  }
+  
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    background-color:  #fa9fc5;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+.buybuddy__navbar__name {
+    margin-right: 2rem;
+    justify-content: flex-start;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: bold;
+=======
 .buybuddy__navbar-links_logo {
   margin-right: 2rem;
   justify-content: flex-start;
@@ -25,6 +67,7 @@
   font-weight: 100px;
   font-family: "Outfit", sans-serif;
   font-weight: bold;
+
 }
 
 .buybuddy__navbar-links_logo img {
@@ -49,15 +92,18 @@
 
 .buybuddy__navbar-links_container p,
 .buybuddy__navbar-sign p,
-.buybuddy__navbar-menu_container p {
-  color: #fff;
-  font-family: "Outfit", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-  line-height: 25px;
-  margin: 0 1rem;
-  cursor: pointer;
+.buybuddy__navbar-menu_container p,
+.buybuddy__navbar-menu_container .hover-underline-animation {
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 25px;
+    margin: 0 1rem;
+    cursor: pointer;
 }
+
+.buybuddy__navbar-links_container 
 
 .buybuddy__navbar-sign button {
   padding: 0.5rem 1rem;
@@ -87,10 +133,25 @@
 }
 
 .buybuddy__navbar-menu {
-  margin-left: 1rem;
+    margin-left: 1rem;
+    display: none;
+    position: relative;
+}
 
-  display: none;
-  position: relative;
+.buybuddy__navbar-menu svg {
+    cursor: pointer;
+    display: none;
+}
+
+.circle__two {
+    position: absolute;
+    left: -400px;
+    top: -850px;
+    user-select: none;
+    z-index: -1; 
+    margin-left: 1rem;
+    display: none;
+    position: relative;
 }
 
 .buybuddy__navbar-menu svg {
@@ -122,7 +183,17 @@
   display: none;
 }
 
+
+/* MEDIA QUERIES */
+
 @media screen and (max-width: 1050px) {
+    .buybuddy__navbar-menu_container {
+        display: flex;
+    }
+
+    .buybuddy__navbar-links_container {
+        display: none;
+    }
   .buybuddy__navbar-links_container {
     display: none;
   }
@@ -131,6 +202,34 @@
     display: flex;
   }
 
+    .buybuddy__navbar-sign {
+        display: flex;
+    }
+
+    .buybuddy__navbar-menu svg {
+        cursor: pointer;
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .buybuddy__navbar-menu svg {
+        cursor: pointer;
+        display: flex;
+    }
+
+    .buybuddy__navbar-sign button {
+        display: none;
+    }
+
+    .buybuddy__navbar-menu_container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        z-index: -1;
+      }
   .buybuddy__navbar-sign {
     display: none;
   }
@@ -163,6 +262,73 @@
   display: none;
 }
 
+    .buybuddy__navbar-sign {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .buybuddy__navbar__name {
+        position: flex;
+    }
+
+    .buybuddy__navbar-links {
+        display: none;
+    }
+    .buybuddy__navbar {
+        padding: 2rem;
+    }
+
+    .buybuddy__navbar-sign button {
+        display: none;
+        z-index: 1;
+    }
+
+    .buybuddy__navbar-menu_container {
+        position: flex;
+        top: 0;
+        left: 0;
+        height: 50%;
+        width: 100%;
+        z-index: -1;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        background: var(--color-footer);
+        padding: 2rem;
+        margin-top: 1rem;
+        min-width: 210px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0,0, 0,0.2);
+      }
+    
+    .buybuddy__navbar-menu {
+        display: flex;
+        z-index: 1;
+    }
+
+    .buybuddy__navbar-menu_toggle {
+        display: block;
+      }
+
+    .buybuddy__navbar-menu_container-links-sign {
+        display: block;
+    }
+
+    .buybuddy__navbar-sign button {
+        display: none;
+    }
+
+    .buybuddy__navbar-menu_container button {
+        display: none;
+    }
+
+    .buybuddy__navbar-sign {
+        display: none;
+    }
+}
 .buybuddy__navbar-menu {
   display: flex;
 }

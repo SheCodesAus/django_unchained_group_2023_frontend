@@ -26,6 +26,16 @@
   color: white;
 }
 
+.circle__one {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  bottom: 0;
+  opacity: 70%;
+  user-select: none;
+  z-index: -1;
+}
+
 .btn-wrap {
   display: flex;
   align-items: flex-start;
@@ -146,8 +156,10 @@
   }
 
   .hero-left {
-    justify-content: space-around;
-  }
+    justify-content: center;
+    align-items: center;
+    }
+
 
   .hero-right {
     justify-content: space-around;
@@ -160,4 +172,11 @@
   .hero-button {
     margin: auto;
   }
+
+
+  .hero__container {
+    align-items: center;
+    align-content: center;
+  }
+
 }
